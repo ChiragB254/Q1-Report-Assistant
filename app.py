@@ -345,18 +345,6 @@ def chat_interface(client: RAGClient, answer_style: str, top_k: int, api_healthy
             with col3:
                 st.metric("Processing Method", result['processing_info'].get('fusion_method', 'Standard'))
             
-            # Show sources in expander
-            with st.expander(f"📚 View Sources ({result['num_sources']})"):
-                for i, source in enumerate(result.get('results', []), 1):
-                    st.markdown(f"""
-                    <div class="source-box">
-                        <strong>Source {i}:</strong> {source['metadata']['source_file']}<br>
-                        <strong>Section:</strong> {source['metadata'].get('header', 'No header')}<br>
-                        <strong>Type:</strong> {source['metadata']['chunk_type']}<br>
-                        <strong>Relevance:</strong> {source['score']:.3f}<br>
-                        <strong>Content Preview:</strong> {source['content'][:200]}...
-                    </div>
-                    """, unsafe_allow_html=True)
 
 def upload_interface(client: RAGClient, api_healthy: bool):
     """Document upload interface"""
