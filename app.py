@@ -256,9 +256,9 @@ def main():
         # Number of sources
         top_k = st.slider(
             "Number of Sources",
-            min_value=1,
-            max_value=10,
-            value=5,
+            min_value=5,
+            max_value=15,
+            value=7,
             help="Number of document chunks to consider for answers"
         )
     
